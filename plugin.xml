@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-vidinoti-push" version="0.1.0">
+    <name>Vidinoti Push</name>
+    <description>Cordova Plugin for Vidinoti V-Director push integration</description>
+    <license>MIT</license>
+    <keywords>cordova, augmented reality, vidinoti</keywords>
+
+    <platform name="android">
+        <resource-file src="src/android/google-services.json" target="."/>
+        <source-file src="src/android/VidinotiInstanceIDListenerService.java" target-dir="src/com/vidinoti/cordova" />
+        <source-file src="src/android/VidinotiFcmListenerService.java" target-dir="src/com/vidinoti/cordova" />
+
+        <config-file parent="/resources" target="res/values/strings.xml">
+            <string name="google_app_id">@string/google_app_id</string>
+        </config-file>
+        <config-file parent="/resources" target="res/values/strings.xml">
+            <string name="google_api_key">@string/google_api_key</string>
+        </config-file>
+
+        <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="com.vidinoti.cordova.VidinotiFcmListenerService">
+                <intent-filter>
+                    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                </intent-filter>
+            </service>
+            <service android:name="com.vidinoti.cordova.VidinotiInstanceIDListenerService">
+                <intent-filter>
+                    <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                </intent-filter>
+            </service>
+        </config-file>
+
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+        <framework src="com.google.gms:google-services:+" />
+        <framework src="com.google.firebase:firebase-core:+" />
+        <framework src="com.google.firebase:firebase-messaging:+" />
+    </platform>
+
+    <hook src="scripts/after_prepare.js" type="after_prepare" />
+
+</plugin>

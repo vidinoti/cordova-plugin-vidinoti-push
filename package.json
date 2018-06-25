@@ -1,0 +1,28 @@
+{
+  "name": "cordova-plugin-vidinoti-push",
+  "version": "0.1.0",
+  "description": "Cordova Plugin for Vidinoti V-Director push integration",
+  "cordova": {
+    "id": "cordova-plugin-vidinoti-push",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vidinoti/cordova-plugin-vidinoti-push.git"
+  },
+  "keywords": [
+    "cordova",
+    "augmented reality",
+    "vidinoti",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Vidinoti SA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vidinoti/cordova-plugin-vidinoti-push/issues"
+  },
+  "homepage": "https://github.com/vidinoti/cordova-plugin-vidinoti-push#readme"
+}
