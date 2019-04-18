@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-vidinoti-push" version="0.1.0">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-vidinoti-push" version="0.1.1">
     <name>Vidinoti Push</name>
     <description>Cordova Plugin for Vidinoti V-Director push integration</description>
     <license>MIT</license>
     <keywords>cordova, augmented reality, vidinoti</keywords>
 
     <platform name="android">
-        <resource-file src="src/android/google-services.json" target="."/>
+
         <source-file src="src/android/VidinotiInstanceIDListenerService.java" target-dir="src/com/vidinoti/cordova" />
         <source-file src="src/android/VidinotiFcmListenerService.java" target-dir="src/com/vidinoti/cordova" />
 
@@ -17,7 +17,7 @@
             <string name="google_api_key">@string/google_api_key</string>
         </config-file>
 
-        <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application">
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <service android:name="com.vidinoti.cordova.VidinotiFcmListenerService">
                 <intent-filter>
                     <action android:name="com.google.firebase.MESSAGING_EVENT"/>
@@ -37,5 +37,6 @@
     </platform>
 
     <hook src="scripts/after_prepare.js" type="after_prepare" />
+    <hook src="scripts/before_plugin_uninstall.js" type="before_plugin_uninstall" />
 
 </plugin>

@@ -16,10 +16,10 @@ This plugin requires the Vidinoti SDK version >= 6.4.0
 
 ## What does the plugin
 
-1. It takes the file `google-services.json` from the root folder and copy it to `platforms/android/`
-2. Add required dependencies in gradle files
-3. Copy Java classes (Android services) `VidinotiInstanceIDListenerService` and `VidinotiFcmListenerService`
-4. Add the Android services to the `AndroidManifest.xml` file
+1. Add required dependencies in gradle files
+2. Copy Java classes (Android services) `VidinotiInstanceIDListenerService` and `VidinotiFcmListenerService`
+3. Add the Android services to the `AndroidManifest.xml` file
+4. In the "after prepare" hook scripts, it takes the `google-services.json` file and copy it to `platforms/android`
 5. In the "after prepare" hook scripts, it takes the `google-services.json` file and extracts the Google app ID and key. It then writes them in the Android `strings.xml` file
 
 ## How to contribute and create a new release
@@ -31,6 +31,10 @@ This plugin requires the Vidinoti SDK version >= 6.4.0
 * Publish the release to npm registry (if necessary `npm login`): `npm publish`
 
 ## Release note
+
+### Version 0.1.1 - 18 April 2018
+
+Fix the plugin such that it can be correctly removed.
 
 ### Version 0.1.0 - 25 June 2018
 
