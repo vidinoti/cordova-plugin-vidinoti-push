@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-vidinoti-push" version="0.1.1">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-vidinoti-push" version="0.1.2">
     <name>Vidinoti Push</name>
     <description>Cordova Plugin for Vidinoti V-Director push integration</description>
     <license>MIT</license>
@@ -32,8 +32,8 @@
 
         <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
         <framework src="com.google.gms:google-services:+" />
-        <framework src="com.google.firebase:firebase-core:+" />
-        <framework src="com.google.firebase:firebase-messaging:+" />
+        <framework src="com.google.firebase:firebase-core:16.0.3" />
+        <framework src="com.google.firebase:firebase-messaging:17.3.4" />
     </platform>
 
     <hook src="scripts/after_prepare.js" type="after_prepare" />

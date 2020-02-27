@@ -32,6 +32,10 @@ This plugin requires the Vidinoti SDK version >= 6.4.0
 
 ## Release note
 
+### Version 0.1.2 - 27 February 2020
+
+Set firebase dependencies version
+
 ### Version 0.1.1 - 18 April 2018
 
 Fix the plugin such that it can be correctly removed.
