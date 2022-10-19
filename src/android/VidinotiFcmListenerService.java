@@ -8,11 +8,13 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.media.RingtoneManager;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.vidinoti.android.vdarsdk.VDARSDKController;
 
 import java.util.Map;
 
@@ -55,7 +57,7 @@ public class VidinotiFcmListenerService extends FirebaseMessagingService {
         appIntent.putExtra("nid", nid);
         appIntent.putExtra("remote", true);
 
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, appIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, appIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         ApplicationInfo ai = getApplicationInfo();
         createNotificationChannel(notificationManager);
@@ -85,6 +87,15 @@ public class VidinotiFcmListenerService extends FirebaseMessagingService {
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);
             notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    @Override
+    public void onNewToken(@NonNull String token) {
+        // Forward the token to the Vidinoti SDK
+        VDARSDKController controller = VDARSDKController.getInstance();
+        if (controller != null) {
+            controller.updatePushNotificationToken(token);
         }
     }
 }

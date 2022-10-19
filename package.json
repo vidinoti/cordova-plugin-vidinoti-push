@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-vidinoti-push",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Cordova Plugin for Vidinoti V-Director push integration",
   "cordova": {
     "id": "cordova-plugin-vidinoti-push",
